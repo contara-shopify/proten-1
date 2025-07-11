@@ -1,0 +1,63 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Newsletter",
+            "content": "<p>Sign up to our newsletter to receive exclusive offers.</p>",
+            "button_background": "",
+            "button_text_color": ""
+          }
+        },
+        "links": {
+          "type": "links",
+          "settings": {
+            "menu": "footer",
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "title": "About",
+            "content": "<p>Protēn makes it easy to hit your protein goals with convenient, great-tasting gummies. No shakes, no mess - just grab, chew, and go.</p>",
+            "enable_follow_on_shop": true
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "links",
+        "text"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "separate_section_with_border": false,
+        "show_social_media": true,
+        "show_payment_icons": true,
+        "show_country_selector": true,
+        "show_country_name": true,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

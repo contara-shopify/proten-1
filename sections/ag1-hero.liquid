@@ -1,0 +1,52 @@
+{% schema %}
+{
+  "name": "AG1 Style Hero",
+  "tag": "section",
+  "class": "section-ag1-hero",
+  "settings": [
+    { "type": "video", "id": "video", "label": "Hero Video" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Only Protēn You Need" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "20G PROTEIN - ONLY 90 CALORIES" },
+    { "type": "textarea", "id": "body", "label": "Body Text", "default": "Our gummies have a soft, chewy texture and taste great. Built on a high-quality whey and collagen protein blend, they’re the perfect way to support your health goals." },
+    { "type": "url", "id": "primary_button_link", "label": "Primary Button Link" },
+    { "type": "text", "id": "primary_button_label", "label": "Primary Button Label", "default": "Shop Now" },
+    { "type": "url", "id": "secondary_button_link", "label": "Secondary Button Link" },
+    { "type": "text", "id": "secondary_button_label", "label": "Secondary Button Label", "default": "See Ingredients" },
+    { "type": "text", "id": "guarantee", "label": "Guarantee Text", "default": "90-day money-back guarantee." }
+  ],
+  "presets": [{ "name": "AG1 Style Hero" }]
+}
+{% endschema %}
+
+<div class="ag1-hero-wrapper">
+  <div class="ag1-hero-container">
+    
+    <div class="ag1-hero-left">
+      {% if section.settings.video != blank %}
+        {{ section.settings.video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'ag1-hero-video' }}
+      {% endif %}
+    </div>
+
+    <div class="ag1-hero-right">
+      {% if section.settings.heading != blank %}
+        <h2>{{ section.settings.heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.subheading != blank %}
+        <p class="subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+
+      {% if section.settings.body != blank %}
+        <p class="body">{{ section.settings.body }}</p>
+      {% endif %}
+
+      <!-- Hardcoded Buttons for Now -->
+      <div class="ag1-hero-buttons">
+        <a href="/collections/all" class="btn btn--primary">Shop Now</a>
+        <a href="/pages/ingredients" class="btn btn--secondary">See Ingredients</a>
+      </div>
+
+      {% if section.settings.guarantee != blank %}
+        <p class="guarantee">{{ section.settings.guarantee }}</p>
+      {% endif %}
+    </div>

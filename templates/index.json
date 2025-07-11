@@ -1,0 +1,552 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "slideshow_jN3kF4": {
+      "type": "slideshow",
+      "blocks": {
+        "image_NRjhkN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_18.png",
+            "mobile_image": "shopify://shop_images/Untitled_design_18.png",
+            "subheading": "GUMMIES THAT FIT YOUR GRIND – HIGH PROTEIN, LOW CALORIE – ULTRA CONVENIENT. ",
+            "title": "PROTĒN",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "Shop Now",
+            "button_2_link": "shopify://products/proten-blue-raspberry-28-count",
+            "button_2_style": "solid",
+            "button_2_background": "#454a76",
+            "button_2_text_color": "#ffffff",
+            "background": "",
+            "background_opacity": 11,
+            "text_color": "#454a76",
+            "border_color": "",
+            "gradient_overlay": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_NRjhkN"
+      ],
+      "custom_css": [
+        ".highlight-word {color: #454a76 !important;}"
+      ],
+      "name": "t:sections.slideshow.presets.slideshow.name",
+      "settings": {
+        "allow_transparent_header": false,
+        "show_next_section_button": false,
+        "media_size": "auto",
+        "show_initial_transition": false,
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#ffffff",
+        "controls_color": "#ffffff"
+      }
+    },
+    "testimonials_pBA3ki": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_Wzmhek": {
+          "type": "testimonial",
+          "settings": {
+            "content": "<p><em>“I wasn’t expecting to love these as much as I do. I’ve tried protein bars, shakes, powders - everything. These gummies are by far the easiest (and tastiest) way I’ve ever gotten my protein in. They feel like a treat, not a chore.”</em></p>",
+            "logo_max_width": 140,
+            "logo_mobile_max_width": 100,
+            "author": ""
+          }
+        },
+        "testimonial_marQLp": {
+          "type": "testimonial",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Share what your customers are saying about your products, customer service or shipping rates.</p>",
+            "logo_max_width": 140,
+            "logo_mobile_max_width": 100,
+            "author": ""
+          }
+        },
+        "testimonial_enfTcB": {
+          "type": "testimonial",
+          "settings": {
+            "content": "<p><em>“I pop a few after the gym and I’m good to go - no blender, no cleanup, no gross aftertaste. They’ve legit replaced my protein shake. Total game changer.”</em></p>",
+            "logo_max_width": 140,
+            "logo_mobile_max_width": 100,
+            "author": ""
+          }
+        },
+        "testimonial_NbPxNn": {
+          "type": "testimonial",
+          "settings": {
+            "content": "<p><em>“Who knew protein could taste this good? I keep a pack in my purse and snack on them during the day. I’m hitting my macros without even thinking about it.”</em></p>",
+            "logo_max_width": 140,
+            "logo_mobile_max_width": 100,
+            "author": ""
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_Wzmhek",
+        "testimonial_marQLp",
+        "testimonial_enfTcB",
+        "testimonial_NbPxNn"
+      ],
+      "name": "t:sections.testimonials.presets.testimonials.name",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "separate_section_with_border": true,
+        "auto_rotate_between_testimonials": false,
+        "cycle_speed": 5,
+        "font_size_factor": 1,
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "image_with_text_J77MFr": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_q8n8zM": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>Fuel Without the Fuss</strong>"
+          }
+        },
+        "heading_mTrKhW": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>Why Protēn?</strong>",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_ygNzyG": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>We made protein simple: 20g per pack, under 5g of sugar, and no weird aftertaste. Just effective nutrition in a format you’ll actually use.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_q8n8zM",
+        "heading_mTrKhW",
+        "richtext_ygNzyG"
+      ],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "separate_section_with_border": true,
+        "image": "shopify://shop_images/Untitled_design_20.png",
+        "mobile_image": "shopify://shop_images/Untitled_design_20.png",
+        "reveal_on_scroll": true,
+        "image_position": "start",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
+    "image_with_text_JEKqRd": {
+      "type": "image-with-text",
+      "blocks": {
+        "subheading_THPjr6": {
+          "type": "subheading",
+          "settings": {
+            "text": "<strong>Powerful Macros. No BS.</strong>"
+          }
+        },
+        "heading_hctARj": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>What’s Inside?</strong>",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_CeEHFn": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p><br/>Each pouch is loaded with clean, functional ingredients - high-quality whey isolate, real flavor, and zero fillers.<br/><br/>→ 20g protein | &lt;5g sugar | 90 calories</p><p></p><p><a href=\"https://cdn.shopify.com/s/files/1/0894/6103/1280/files/Untitled_design_23.png?v=1748905847\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0894/6103/1280/files/Untitled_design_23.png?v=1748905847\">See Label</a><br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_THPjr6",
+        "heading_hctARj",
+        "richtext_CeEHFn"
+      ],
+      "custom_css": [],
+      "name": "t:sections.image_with_text.presets.image_with_text.name",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "separate_section_with_border": true,
+        "image": "shopify://shop_images/Untitled_design_21.png",
+        "mobile_image": "shopify://shop_images/Untitled_design_21.png",
+        "reveal_on_scroll": true,
+        "image_position": "end",
+        "content_width": "sm",
+        "remove_vertical_spacing": true
+      }
+    },
+    "featured_product_ErDi48": {
+      "type": "featured-product",
+      "blocks": {
+        "vendor_PAae34": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_maTJQL": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_D7Kejj": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_3JDqag": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_tCMe9T": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_aDYjcr": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator_Fy6F8i": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_cyFJkr": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false
+          }
+        },
+        "variant_picker_fimiB3": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_EE69U6": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons_n87hPQ": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_gpj6CA": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_PAae34",
+        "title_maTJQL",
+        "badges_D7Kejj",
+        "price_3JDqag",
+        "rating_tCMe9T",
+        "payment_terms_aDYjcr",
+        "separator_Fy6F8i",
+        "description_cyFJkr",
+        "variant_picker_fimiB3",
+        "quantity_selector_EE69U6",
+        "buy_buttons_n87hPQ",
+        "pickup_availability_gpj6CA"
+      ],
+      "name": "t:sections.featured_product.presets.featured_product.name",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "product": "proten-blue-raspberry-28-count",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    },
+    "multi_column_YrAjfw": {
+      "type": "multi-column",
+      "blocks": {
+        "image_with_text_KcKNdW": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Column title",
+            "heading_tag": "h3",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_indi3n": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Column title",
+            "heading_tag": "h3",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        },
+        "image_with_text_zPKaXW": {
+          "type": "image_with_text",
+          "settings": {
+            "title": "Column title",
+            "heading_tag": "h3",
+            "content": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_url": "",
+            "link_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_KcKNdW",
+        "image_with_text_indi3n",
+        "image_with_text_zPKaXW"
+      ],
+      "disabled": true,
+      "name": "t:sections.multi_column.presets.multi_column.name",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "columns_per_row": 3,
+        "stack_on_mobile": false,
+        "overlap_image": false,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing": "md",
+        "subheading": "About",
+        "title": "Multi-column",
+        "content": ""
+      }
+    },
+    "image-with-text-scroll": {
+      "type": "images-with-text-scroll",
+      "blocks": {
+        "item-1": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/1.png",
+            "subheading": "No shaker. No mess. Just grab and go.",
+            "title": "<strong>The Protein You’ll Actually Take</strong>",
+            "content": "<p>We took everything you need in a protein supplement and packed it into a gummy. One pouch, 20g of clean protein - zero excuses.<br/></p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/proten-blue-raspberry-28-count",
+            "link_style": "solid"
+          }
+        },
+        "item-2": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/2.png",
+            "subheading": "Forget powder. These are built different.",
+            "title": "<strong>Soft. Chewy. Surprisingly Addictive.</strong>",
+            "content": "<p>No more choking down chalky shakes or cleaning blender bottles. Proten gummies deliver powerful macros in a format that tastes like candy - but fuels like a pro.</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/proten-blue-raspberry-28-count",
+            "link_style": "solid"
+          }
+        },
+        "item-3": {
+          "type": "image_with_text",
+          "settings": {
+            "image": "shopify://shop_images/3.png",
+            "subheading": "It’s like a treat - except it hits your macros.",
+            "title": "<strong>Tastes So Good, You’ll Forget It’s Protein</strong>",
+            "content": "<p>Protein supplements shouldn’t feel like a chore. With Proten, getting 20g of protein is as easy (and satisfying) as popping a gummy. Your routine just got way easier.</p>",
+            "link_text": "Shop Now",
+            "link_url": "shopify://products/proten-blue-raspberry-28-count",
+            "link_style": "solid"
+          }
+        }
+      },
+      "block_order": [
+        "item-1",
+        "item-2",
+        "item-3"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "background_image": "shopify://shop_images/proten_-_images_with_text_1.png",
+        "mobile_background_image": "shopify://shop_images/proten_-_images_with_text_1.png",
+        "image_position": "end",
+        "text_alignment": "center",
+        "heading_tag": "h3",
+        "overlay_color": "#454a76",
+        "overlay_opacity": 31
+      }
+    },
+    "image_with_text_overlay_6VPKqg": {
+      "type": "image-with-text-overlay",
+      "blocks": {
+        "heading_qXKCyh": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>Fuel That Fits Your Life</strong>",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_7Ffwn3": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p><br/>No prep, no cleanup - just high-quality protein in a format you’ll actually use. Proten gummies pack 20g of clean protein into a soft, chewy bite that goes wherever you go. It’s the easiest way to stay on track, without sacrificing taste or convenience.<br/></p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_qXKCyh",
+        "richtext_7Ffwn3"
+      ],
+      "name": "t:sections.image_with_text_overlay.presets.image_with_text_overlay.name",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "image_size": "auto",
+        "image": "shopify://shop_images/Untitled_design_19.png",
+        "mobile_image": "shopify://shop_images/Untitled_design_15.png",
+        "allow_transparent_header": false,
+        "reveal_on_scroll": true,
+        "remove_vertical_spacing": true,
+        "content_width": "md",
+        "mobile_text_position": "place-self-center text-center",
+        "desktop_text_position": "sm:place-self-center sm:text-center",
+        "overlay_color": "#454a76",
+        "overlay_opacity": 55
+      }
+    },
+    "faq_XJjiV6": {
+      "type": "faq",
+      "blocks": {
+        "category_tTrpCA": {
+          "type": "category",
+          "settings": {
+            "title": "<strong>Answers to your questions</strong>",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "question_fJmNjU": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How much protein is in each serving?</strong>",
+            "answer": "<p>Each serving (10 gummies) contains 20 grams of high-quality whey and collagen protein.</p>"
+          }
+        },
+        "question_3hdDRB": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>When should I eat PROTĒN gummies?</strong>",
+            "answer": "<p>Anytime! They're perfect pre- or post-workout, between meals, or whenever you need a protein boost.</p>"
+          }
+        },
+        "question_LAcRTq": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>What do they taste like?</strong>",
+            "answer": "<p>They taste like candy - soft, chewy, and delicious. No chalky texture or weird aftertaste.</p>"
+          }
+        },
+        "question_zLVyp7": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Are PROTĒN gummies suitable for meal replacement?</strong>",
+            "answer": "<p>They’re designed to supplement your diet with protein, not replace full meals.</p>"
+          }
+        },
+        "question_ChrL7J": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Are they gluten-free or dairy-free?</strong>",
+            "answer": "<p>PROTĒN gummies contain dairy (from whey protein) and are gluten-free.</p>"
+          }
+        },
+        "question_7BpMUT": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>How should I store them?</strong>",
+            "answer": "<p>Store in a cool, dry place - just like you would with any other gummy or supplement.</p>"
+          }
+        },
+        "question_qhLtYc": {
+          "type": "question",
+          "settings": {
+            "question": "<strong>Can kids eat them?</strong>",
+            "answer": "<p>While they’re safe, they’re formulated for adult protein needs. Always check with your pediatrician.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "category_tTrpCA",
+        "question_fJmNjU",
+        "question_3hdDRB",
+        "question_LAcRTq",
+        "question_zLVyp7",
+        "question_ChrL7J",
+        "question_7BpMUT",
+        "question_qhLtYc"
+      ],
+      "name": "t:sections.faq.presets.faq.name",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "Need help?",
+        "title": "<strong>Frequently Asked Questions</strong>",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "slideshow_jN3kF4",
+    "testimonials_pBA3ki",
+    "image_with_text_J77MFr",
+    "image_with_text_JEKqRd",
+    "featured_product_ErDi48",
+    "multi_column_YrAjfw",
+    "image-with-text-scroll",
+    "image_with_text_overlay_6VPKqg",
+    "faq_XJjiV6"
+  ]
+}

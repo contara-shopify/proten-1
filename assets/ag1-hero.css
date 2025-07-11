@@ -1,0 +1,94 @@
+.ag1-hero-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0;
+  background: #D7F8FF;
+}
+
+.ag1-hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.ag1-hero-left,
+.ag1-hero-right {
+  flex: 1 1 50%;
+  max-width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.ag1-hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  display: block;
+}
+
+.ag1-hero-right {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  z-index: 2;
+  color: #1C1C1C;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ag1-hero-right h1,
+.ag1-hero-right h2,
+.ag1-hero-right h3,
+.ag1-hero-right h4,
+.ag1-hero-right h5,
+.ag1-hero-right h6 {
+  font-family: 'Jost', sans-serif;
+  color: #1C1C1C;
+}
+
+.ag1-hero-right h2 {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.ag1-hero-right .subheading {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.ag1-hero-right .body {
+  line-height: 1.6;
+}
+
+/* Button Styling */
+.ag1-hero-right .btn,
+.ag1-hero-right button,
+.ag1-hero-right .button {
+  background-color: #FDCB50;
+  color: #1C1C1C;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+}
+
+.ag1-hero-right .btn:hover,
+.ag1-hero-right button:hover,
+.ag1-hero-right .button:hover {
+  opacity: 0.9;
+}
