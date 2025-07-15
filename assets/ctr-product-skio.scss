@@ -1,11 +1,11 @@
 
-$btn-bg: var(--product-flavor-color);
+$btn-bg: var(--product-scheme-main-color);
 $box-bg: #ffffff;
 $box-bd-color: rgba(17, 17, 17, 0.20);
-$box-bd-active-color: var(--product-flavor-color);
+$box-bd-active-color: var(--product-scheme-border-color);
 $box-bd-nav-color: #C4C4C4;
 $box-bg-hover: white;
-$box-bg-active: var(--product-flavor-color);
+$box-bg-active: var(--product-scheme-bg-color);
 $box-color-list: #2DB059;
 $box-text-color: #454A76;
  
@@ -18,11 +18,13 @@ $title-color: #222E31;
 // }
 
 .b-skio {
+    margin-top:-6px;
+
     .ctr-product-option { 
         &__list {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            margin: 0 0 24px;
+            margin: 0 0 31px;
             padding: 0;
         } 
 
@@ -52,9 +54,14 @@ $title-color: #222E31;
             padding: 12px 0;
             color: #454A76;
 
+            @media screen and (max-width: 768px) {
+                font-size: 16px;
+                line-height: 20px;
+            }
+
             &.m-active {
-                border-color: var(--product-flavor-color); 
-                background-color: var(--product-flavor-color);
+                border-color: $box-bd-active-color; 
+                background-color: $btn-bg;
             }
         } 
     }
@@ -65,13 +72,13 @@ $title-color: #222E31;
         color: #454A76;
         font-weight: bold;
         text-align: center;
-        margin-bottom: 20px; 
+        margin-bottom: 12px; 
     }
 
 	&__wrapper { 
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 22px;
 
         &.subscription-toggle { 
             display: none;
@@ -94,13 +101,17 @@ $title-color: #222E31;
             font-size: 14px;
             color: #454A76;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 9px;
         }
  
         &-prices {
             display: flex;
             align-items: center;
             gap: 12px;
+
+            @media screen and (max-width: 768px) {
+               font-size: 16px;
+            }
         }
 
         &-price { 
@@ -112,6 +123,7 @@ $title-color: #222E31;
             &.m-old {
                 text-decoration: line-through; 
                 opacity: 0.5;
+                font-weight: normal;
             }
         }
 
@@ -125,7 +137,7 @@ $title-color: #222E31;
             font-family: Lato;
             justify-content: center;
             align-items: center;
-            gap: 10px; 
+            gap: 16px; 
             border-radius: 4px;
             background: #B6E8C7;
             color: #1C7339;
@@ -134,15 +146,19 @@ $title-color: #222E31;
         &-items {
             display: flex;
             flex-direction: column;
-            gap: 10px; 
-            margin-bottom: 20px; 
+            gap: 16px; 
+            margin-bottom: 16px; 
+
+            @media (max-width: 768px) {
+                gap: 30px;
+            }
         }
 
         &-item {
             position: relative;
             border: 1px solid $box-bd-color;
             border-radius: 10px;
-            padding: 20px 20px 20px 50px; 
+            padding: 18px 20px 22px 52px; 
             transition: all 0.3s ease;
             font-size: 20px;
 
@@ -165,7 +181,7 @@ $title-color: #222E31;
                 border-color: $box-bd-active-color; 
 
                 &::after {
-                    opacity:  0.2;
+                    opacity:  1;
                     visibility: visible;
                 }
             }
@@ -173,7 +189,7 @@ $title-color: #222E31;
  
         &-tag {
             position: absolute;
-            right: 24px; 
+            right: 18px; 
             top: 24px;
             color: #323836;
             font-family: Lato; 
@@ -188,22 +204,30 @@ $title-color: #222E31;
             border-radius: 38px;
             min-width: 160px;
             text-align: center;
+
+            @media (max-width: 768px) {
+                right: 14px;
+                top: -17px;
+                padding: 7px;
+            }
         }
     }
 
     &__box {
         position: relative;
-        padding: 20px; 
+        padding: 16px 20px 20px 20px; 
         border: 1px solid #000000; 
         border-radius: 10px;
         cursor: pointer;
+        transition: all 0.3s ease;
         
         &.m-subscribe {
             box-shadow: 4px 4px 0 1px rgba(0, 0, 0, 1);
         }
  
         &.m-one-time {  
-            padding: 20px 20px 20px 20px;
+            padding: 18px 20px 20px 24px;
+            border-color: $box-bd-nav-color;
 
             &::after {
                 content: '';
@@ -230,9 +254,29 @@ $title-color: #222E31;
                 }
 
                 &::after { 
-                    opacity: 0.2;
+                    opacity: 1;
                     visibility: visible; 
                 }
+            }
+
+            .b-skio__box--btn {
+                margin-top: 0;
+                opacity: 0;
+                visibility: hidden;
+                height: 0;
+                padding: 0; 
+
+                &.m-showed {
+                    padding: 19px 15px 19px;
+                    margin-top: 16px;
+                    opacity: 1;
+                    visibility: visible;
+                    height: auto;
+                }
+            }
+
+            .b-skio__box--radiobtn {
+                margin-top: 4px;
             }
         } 
 
@@ -291,7 +335,7 @@ $title-color: #222E31;
         border-radius: 10px;   
         color: $title-color;
         font-weight: bold;
-        font-size: 18px;
+        font-size: 20px;
         line-height: 20px;
         cursor: pointer; 
         box-shadow: 4px 4px 0 1px rgba(0, 0, 0, 1);
@@ -318,7 +362,7 @@ $title-color: #222E31;
     &__box--radiobtn {
         position: absolute;
         top: 50%;
-        left: 18px;
+        left: 23px;
         transform: translateY(-50%);
         max-width: 18px;
         max-height: 18px;  
@@ -338,11 +382,11 @@ $title-color: #222E31;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%); 
-            width: 19px;
+            width: 19px; 
             height: 19px;
             border-radius: 50%; 
             background-color: transparent;
-            border: 5px solid $box-bg-active;
+            border: 5px solid $box-bd-active-color;
             transition: all 0.3s ease;
             opacity: 0; 
             visibility: hidden;
@@ -355,12 +399,23 @@ $title-color: #222E31;
         line-height: 1.3em; 
 
         &.m-once {
-            padding-top: 10px;
+            
+            opacity: 0;
+            height: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
 
             ul li:before {
                 background-image: none;
                 background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='25' viewBox='0 0 24 25' fill='none'%3E%3Cg clip-path='url(%23clip0)'%3E%3Cpath d='M7 17.2427L17.2427 7.00001' stroke='%23F71F23' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M7 7L17.2427 17.2427' stroke='%23F71F23' stroke-width='2' stroke-linecap='round'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0'%3E%3Crect width='24' height='24' fill='white' transform='translate(0 0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
             }  
+
+            &.m-showed {
+                padding-top: 10px;
+                opacity: 1;
+                visibility: visible;
+                height: auto;
+            }
         }
 
         &.m-subscribe {
@@ -373,7 +428,7 @@ $title-color: #222E31;
             margin: 0 0 16px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 9px;
         }
  
         li {
@@ -382,7 +437,7 @@ $title-color: #222E31;
             font-size: 18px;
             line-height: 1.3em; 
             position: relative;
-            padding-left: 32px;
+            padding-left: 34px;
  
             &::before {
                 position: absolute;
@@ -408,10 +463,15 @@ $title-color: #222E31;
         padding-left: 30px;  
         display: flex;
         flex-direction: column;
-        gap: 10px;   
+        gap: 2px;   
         
         .b-skio__box--radiobtn {
             left: 0;
+        }
+
+        .b-skio__variant-price {
+            margin-top: -4px;
+            margin-bottom: 3px;
         }
 
         .b-skio__variant-interval {
@@ -425,5 +485,52 @@ $title-color: #222E31;
 
     &__box--oldprice {
 
+    }
+}
+
+.product-info {
+    .product-title {
+        font-size: 32px;
+        line-height: 100%;
+        color: #454A76;
+        font-weight: bold; 
+        margin-bottom: 16px; 
+        font-weight: bold;
+
+        @media (max-width: 768px) {
+            font-size: 24px;
+        }
+    }
+ 
+    
+
+}
+
+.product-gallery {
+    .product-gallery__thumbnail {
+        width: 85px;
+        height: 85px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-right: 16px; 
+        padding: 0;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .product-gallery__media {
+        padding-bottom: 100%;
+        position: relative;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
 }

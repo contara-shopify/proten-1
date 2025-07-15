@@ -236,10 +236,17 @@ Supported variables
                 endif
               endfor
             -%}
-
+ 
           {%- when 'skio' -%}
             {% assign flavor_color = product.metafields.custom.product_color.value %}
-            <article x-cloak class="b-skio" style="--product-flavor-color: {{ flavor_color }};">
+            {% assign product_scheme_colors = product.metafields.custom.product_schema.value %}
+            
+            <article x-cloak class="b-skio" style="
+              --product-scheme-main-color: {{ product_scheme_colors.main_color }};
+              --product-scheme-border-color: {{ product_scheme_colors.border_color }};
+              --product-scheme-bg-color: {{ product_scheme_colors.bg_color_item }};
+              "
+            >
               
               <div class="b-skio__title">{{ product_flavors_title }}</div>
               <ul class="ctr-product-option__list">

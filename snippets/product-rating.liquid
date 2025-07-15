@@ -17,10 +17,10 @@ Supported variables
 {%- endcomment -%}
 
 {%- liquid
-  if product.metafields.reviews.rating.value != blank
-    assign rating_value = product.metafields.reviews.rating.value.rating | round: 1
-    assign rating_count = product.metafields.reviews.rating_count.value
-    assign rating_max = product.metafields.reviews.rating.value.scale_max
+  if product.metafields.custom.reviews-1.value != blank
+    assign rating_value = product.metafields.custom.reviews-1.value | round: 1
+    assign rating_count = 98
+    assign rating_max = 5 
   elsif show_empty
     assign rating_value = 0.0
     assign rating_count = 0

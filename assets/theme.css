@@ -3285,7 +3285,7 @@ tr[onclick]:hover {
 }
 
 .rating-badge__stars {
-  column-gap: .125rem;
+  column-gap: .06rem;
   display: flex;
   position: relative;
   top: -.5px;
@@ -5914,7 +5914,7 @@ product-rerender {
 .product-gallery {
   --product-gallery-gap: 1.5rem;
   --product-gallery-thumbnail-list-gap: 1rem .5rem;
-  --product-gallery-thumbnail-size: 3.5rem;
+  --product-gallery-thumbnail-size: 5.3rem;
   flex-direction: var(--product-gallery-flex-direction, column);
   align-items: start;
   gap: var(--product-gallery-gap) var(--product-gap, 0px);
