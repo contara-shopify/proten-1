@@ -1,0 +1,79 @@
+<div class="b-skio">
+    <div class="b-skio__wrapper">
+        <div 
+            class="b-skio__box m-subscribe"
+            :class="typePurchase === 'subscribe' ? 'm-selected ' : ''"
+            @click="typePurchase = 'subscribe'"
+        >
+            <div class="b-skio__variant-picker">
+                <div class="b-skio__variant-title">
+                    Monthly Offerings
+                </div>
+                <div class="b-skio__variant-items">
+                    <template x-for="variant in variants" :key="variant.id">
+                        <div 
+                            class="b-skio__variant-item"
+                            :class="{ 'm-selected': selectedVariant.id === variant.id }"
+                            data-variant-id="variant.id"
+                            @click="selectVariant(variant)"
+                        >
+                            <span class="b-skio__box--radiobtn"></span>
+                            <h4 x-text="variant.parsedTitle.label" class="b-skio__box--title"></h4>
+                            {% comment %} <h4 x-text="variant.id"></h4> {% endcomment %}
+                            <div class="b-skio__variant-prices">
+                                <span 
+                                    class="b-skio__variant-price m-actual" 
+                                    x-text="`$${(variant.discount_value / 100).toFixed(2)}`">
+                                </span>
+                                <span 
+                                    class="b-skio__variant-price m-old" 
+                                    x-show="variant.discounted_price"
+                                    x-text="`$${(variant.price / 100).toFixed(2)}`"
+                                ></span>
+                                <span 
+                                    class="b-skio__variant-save" 
+                                    x-show="variant.discount_value"
+                                    x-text="`Save $${(variant.discounted_price / 100).toFixed(2)}`"
+                                ></span>
+                            </div>
+                            <span 
+                                class="b-skio__variant-interval"  
+                                x-text="`$${(variant.discount_value / 100 / 28 / variant.parsedTitle.count ).toFixed(2)} per day`">
+                            </span> 
+
+                            <div class="b-skio__variant-tag" x-text="variant.parsedTitle.tag"></div>
+                        </div>
+                    </template>
+                </div> 
+            </div>
+            <div class="b-skio__box-description m-subscribe" x-data="{ skio_data: '{{ skio_data | escape }}' }" x-html="skio_data"></div>
+            {% comment %} <select @change="onChangeSellingPlan">
+                <template x-for="plan in skioDataObj.selling_plans" :key="plan.id">
+                    <option :value="plan.id" x-text="plan.name"></option>
+                </template>
+            </select> {% endcomment %}
+            <span class="b-skio__box--btn">
+                Start Now
+            </span>
+        </div>
+        <div 
+            class="b-skio__box m-one-time" 
+            :class="typePurchase === 'one-time' ? 'm-selected ' : ''"
+            @click="typePurchase = 'one-time'" 
+        > 
+            <div class="b-skio__box--inner">
+                <span class="b-skio__box--radiobtn"></span>
+                <h4 class="b-skio__box--title">Try Once</h4>
+                <span class="b-skio__variant-price" x-text="getPriceCorrectFormat(selectedVariant)"></span>
+                <span 
+                    class="b-skio__variant-interval"  
+                    x-text="`$${(selectedVariant.price / 100 / 28 / selectedVariant.parsedTitle.count ).toFixed(2)} per day`">
+                </span> 
+            </div>
+            <div class="b-skio__box-description m-once" x-data="{ skio_try_once: '{{ skio_try_once | escape }}' }" x-html="skio_try_once"></div>
+            <span class="b-skio__box--btn">
+                Try now
+            </span>
+        </div>
+    </div> 
+</div>

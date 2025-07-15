@@ -237,6 +237,32 @@ Supported variables
               endfor
             -%}
 
+          {%- when 'skio' -%}
+            {% assign flavor_color = product.metafields.custom.product_color.value %}
+            <article x-cloak class="b-skio" style="--product-flavor-color: {{ flavor_color }};">
+              
+              <div class="b-skio__title">{{ product_flavors_title }}</div>
+              <ul class="ctr-product-option__list">
+                {% for flavor in product_flavors %}
+                  {% assign preselected_variant_id = flavor.selected_or_first_available_variant.id %}
+                  {% assign flavor_name = flavor.metafields.custom.title_for_skio.value %}
+                  <li class="ctr-product-option__item m-badge" style="position: relative; overflow: visible;">
+                    <button 
+                      type="button"
+                      class="ctr-product-option__button {% if flavor.selected_or_first_available_variant.id == product.selected_or_first_available_variant.id %} m-active{% endif %}"
+                      @click.prevent="loadProduct('{{ flavor.handle }}', '{{preselected_variant_id}}')"
+                    >
+                      {{ flavor_name }}
+                    </button>
+                  </li>
+                {% endfor %}
+              </ul>
+              {% assign skio = block.settings.skio_info %}
+              {% assign skio_try_once = block.settings.skio_info_try_once %}
+              <div> 
+                {% render 'ctr-skio-box-alp', skio_data: skio, skio_try_once: skio_try_once %}
+              </div>
+            </article>
             {%- if contains_product -%}
               {%- comment -%}
                 IMPLEMENTATION NOTE: this feature allows to connect different products on the same page. It is therefore

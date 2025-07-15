@@ -3,7 +3,7 @@
 
   for block in section.blocks
     if block.type == 'complementary_products'
-      assign has_content_below_gallery = true
+      assign has_content_below_gallery = true 
       break
     endif
 
@@ -37,10 +37,37 @@
   }
 </style>
 
+{% for block in section.blocks %}
+  {% if block.type == 'skio' %}
+    <!-- Alpine Core -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+      [x-cloak] { display: none !important; }
+    </style>
+    <!-- Alpine Custom Skio Scripts -->
+    {{ 'ctr-product-card-alp.js' | asset_url | script_tag }}
+    {% comment %} {{ 'ctr-product-skio.js' | asset_url | script_tag }} {% endcomment %}
+    {{ 'ctr-product-skio.css' | asset_url | stylesheet_tag }}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
 {%- assign color_scheme_hash = section.settings.color_scheme.settings.background_gradient | default: section.settings.color_scheme.settings.background | md5 -%}
 {%- capture product_form_id -%}product-form-main-{{ product.id }}-{{ section.id }}{%- endcapture -%}
-
-<div class="section-spacing section-spacing--tight color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg-{{ color_scheme_hash }}">
+<section x-data="productCard('{{ section.id }}')" x-ref='productCardElement'>
+  <script x-ref="productDataJson" type="application/json">
+    {{ product | json }}
+  </script>
+<div 
+  id="MainProduct-{{ section.id }}"
+  x-ref='productCardRef'
+  class="
+  section-spacing 
+  section-spacing--tight 
+  color-scheme 
+  color-scheme--{{ section.settings.color_scheme.id }} 
+  color-scheme--bg-{{ color_scheme_hash }}"
+>
   <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
     <product-rerender id="product-info-{{ product.id }}-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
       <div class="product">
@@ -60,6 +87,8 @@
           product: product, 
           product_form_id: product_form_id,
           center_basic_info: section.settings.center_basic_info, 
+          product_flavors: section.settings.product_flavors, 
+          product_flavors_title: section.settings.product_flavors_title,
           has_content_below_gallery: has_content_below_gallery, 
           context: 'main_product' 
         -%}
@@ -105,6 +134,7 @@
     </product-rerender>
   </div>
 </div>
+</section>
 
 {%- if section.settings.show_sticky_add_to_cart and product.available -%}
   <product-rerender id="{{ product_form_id }}-sticky-bar" observe-form="{{ product_form_id }}">
@@ -175,13 +205,24 @@ quick buy information in a template, that will be extracted in JS, which ensures
     // Safari in private mode does not allow setting item, we silently fail
   }
 </script>
-
+ 
 {% schema %}
 {
-  "name": "t:sections.main_product.name",
+  "name": "t:sections.main_product.name", 
   "class": "shopify-section--main-product",
   "tag": "section",
   "settings": [
+    {
+      "type": "product_list",
+      "id": "product_flavors",
+      "label": "Select flavors products", 
+    },
+    {
+      "type": "text",
+      "id": "product_flavors_title",
+      "label": "Select flavors title",
+      "default": "CHOOSE YOUR FLAVOR",
+    },
    {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -587,6 +628,22 @@ quick buy information in a template, that will be extracted in JS, which ensures
             }
           ],
           "default": "swatch"
+        }
+      ]
+    },
+    {
+      "type": "skio",
+      "name": "Skio Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "skio_info",
+          "label": "Your Skio Description for Subscribe block",
+        },
+        {
+          "type": "richtext",
+          "id": "skio_info_try_once",
+          "label": "Your Skio Description for One Time Purchase block",
         }
       ]
     },
