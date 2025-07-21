@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "main-product",
@@ -63,8 +63,8 @@
         "skio_VGAhTB": {
           "type": "skio",
           "settings": {
-            "skio_info": "<ul><li>28 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
-            "skio_info_try_once": "<ul><li>NO Free Shipping</li></ul>"
+            "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info_try_once": ""
           }
         },
         "quantity_selector": {
@@ -110,8 +110,8 @@
       ],
       "settings": {
         "product_flavors": [
-          "proten-blue-raspberry-28-count",
-          "proten-strawberries-n-cream-28-count-copy"
+          "proten-strawberries-n-cream-28-count-copy",
+          "proten-blue-raspberry-28-count"
         ],
         "product_flavors_title": "CHOOSE YOUR FLAVOR",
         "color_scheme": "scheme-4",

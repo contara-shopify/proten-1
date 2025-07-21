@@ -17,9 +17,9 @@
           "settings": {
             "image": "shopify://shop_images/Untitled_design_18.png",
             "mobile_image": "shopify://shop_images/Untitled_design_18.png",
-            "subheading": "GUMMIES THAT FIT YOUR GRIND – HIGH PROTEIN, LOW CALORIE – ULTRA CONVENIENT. ",
-            "title": "PROTĒN",
-            "mobile_text_position": "place-self-center text-center",
+            "subheading": "GUMMIES THAT FIT YOUR GRIND - HIGH PROTEIN, LOW CALORIE - ULTRA CONVENIENT",
+            "title": "",
+            "mobile_text_position": "place-self-end-start text-start",
             "desktop_text_position": "sm:place-self-center-start sm:text-start",
             "content_max_width": 780,
             "button_1_text": "",
@@ -30,11 +30,11 @@
             "button_2_text": "Shop Now",
             "button_2_link": "shopify://products/proten-blue-raspberry-28-count",
             "button_2_style": "solid",
-            "button_2_background": "$box-text-color",
+            "button_2_background": "#454a76",
             "button_2_text_color": "#ffffff",
             "background": "",
             "background_opacity": 11,
-            "text_color": "$box-text-color",
+            "text_color": "#454a76",
             "border_color": "",
             "gradient_overlay": ""
           }
@@ -44,7 +44,7 @@
         "image_NRjhkN"
       ],
       "custom_css": [
-        ".highlight-word {color: $box-text-color !important;}"
+        ".highlight-word {color: #454a76 !important;}"
       ],
       "name": "t:sections.slideshow.presets.slideshow.name",
       "settings": {
@@ -109,7 +109,7 @@
       "name": "t:sections.testimonials.presets.testimonials.name",
       "settings": {
         "color_scheme": "scheme-4",
-        "separate_section_with_border": true,
+        "separate_section_with_border": false,
         "auto_rotate_between_testimonials": false,
         "cycle_speed": 5,
         "font_size_factor": 1,
@@ -415,7 +415,7 @@
         "image_position": "end",
         "text_alignment": "center",
         "heading_tag": "h3",
-        "overlay_color": "$box-text-color",
+        "overlay_color": "#454a76",
         "overlay_opacity": 31
       }
     },
@@ -452,7 +452,7 @@
         "content_width": "md",
         "mobile_text_position": "place-self-center text-center",
         "desktop_text_position": "sm:place-self-center sm:text-center",
-        "overlay_color": "$box-text-color",
+        "overlay_color": "#454a76",
         "overlay_opacity": 55
       }
     },

@@ -11,6 +11,7 @@
   "current": {
     "section_vertical_spacing": "md",
     "button_border_radius": 20,
+    "default_color_scheme": "scheme-1",
     "product_rating_color": "#1c1c1c",
     "product_on_sale_accent": "#e32c2b",
     "product_sold_out_badge_background": "#efefef",
@@ -25,23 +26,16 @@
     "button_letter_spacing": 18,
     "favicon": "shopify://shop_images/Untitled_design_22.png",
     "content_for_index": [],
-    "blocks": {
-      "10436698916776057164": {
-        "type": "shopify://apps/appstle-subscription/blocks/appstle-subscription-helper/fe257d39-6f88-4f35-ab08-bd437e3aa94e",
-        "disabled": false,
-        "settings": {}
-      }
-    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
           "background": "#d7f8ff",
           "background_gradient": "",
-          "text_color": "$box-text-color",
-          "primary_button_background": "$box-text-color",
+          "text_color": "#454a76",
+          "primary_button_background": "#454a76",
           "primary_button_text_color": "#ffffff",
           "circle_button_background": "#ffffff",
-          "circle_button_icon": "$box-text-color"
+          "circle_button_icon": "#454a76"
         }
       },
       "scheme-2": {
@@ -70,11 +64,11 @@
         "settings": {
           "background": "#ffffff",
           "background_gradient": "",
-          "text_color": "$box-text-color",
-          "primary_button_background": "$box-text-color",
+          "text_color": "#454a76",
+          "primary_button_background": "#454a76",
           "primary_button_text_color": "#ffffff",
           "circle_button_background": "#ffffff",
-          "circle_button_icon": "$box-text-color"
+          "circle_button_icon": "#454a76"
         }
       }
     }
