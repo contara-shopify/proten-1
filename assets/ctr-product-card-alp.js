@@ -325,7 +325,11 @@ document.addEventListener("alpine:init", () => {
       const isProductPage = window.location.pathname.startsWith('/products/');
       // this.sectionId = 'template--25355607015792__main';
       // this.sectionId = 'featured-product';
-      console.log("this.sectionId:", this.sectionId);
+      // console.log("this.sectionId:", this.sectionId);
+      if (!isProductPage) {
+        window.location.href = `/products/${productHandle}?variant=${preselectedVariantId}`;
+      }
+
       const url = `/products/${productHandle}?${
         preselectedVariantId ? `variant=${preselectedVariantId}` : ""
       }&sections=${this.sectionId}`;

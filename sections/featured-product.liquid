@@ -35,16 +35,14 @@
   x-data="productCard('{{ section.id }}')" 
   x-ref='productCardElement'
 >
-  <h1>{{ product.id }}</h1>
-  <h1>{{ product_form_id }}</h1>
-  {% for flavor in section.settings.product_flavors %}
-    {% comment %} {% assign preselected_variant_id = flavor.selected_or_first_available_variant.id %}
-    {% assign flavor_name = flavor.metafields.custom.title_for_skio.value %} {% endcomment %}
+
+  {% comment %} {% for flavor in section.settings.product_flavors %}
+
      {% assign product_flavor = all_products[flavor.handle] %}
-     <h2>{{ flavor.handle }}</h2>
-  {% endfor %} 
+
+  {% endfor %}  {% endcomment %}
   {% assign first_render_product = section.settings.product_flavors | first %}
-  <h2>{{ first_render_product.handle }}</h2>
+  {% comment %} <h2>{{ first_render_product.handle }}</h2> {% endcomment %}
   {% assign productCurrent = all_products[first_render_product.handle] %}
   {% comment %} {% assign productCurrent = all_products[section.settings.product] %} {% endcomment %}
   <script x-ref="productDataJson" type="application/json">
@@ -71,18 +69,15 @@
                   enable_image_zoom: section.settings.enable_image_zoom,
                   max_image_zoom_level: section.settings.max_image_zoom_level -%}
             {%- endif -%}
-<div>
-  {{ product | json }}
-            {%- render 'product-info', 
+
+            {%- render 'product-info',  
               product: product, 
               product_form_id: product_form_id,
               center_basic_info: section.settings.center_basic_info, 
               product_flavors: section.settings.product_flavors, 
               product_flavors_title: section.settings.product_flavors_title,
-              context: 'main_product' 
+              context: 'featured_product' 
             -%}
-          </div>
-
 
           </div>
         </product-rerender>
