@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "slideshow_jN3kF4": {
       "type": "slideshow",
@@ -229,6 +229,13 @@
             "rating_mode": "rating"
           }
         },
+        "skio_THMb3j": {
+          "type": "skio",
+          "settings": {
+            "skio_info": "",
+            "skio_info_try_once": ""
+          }
+        },
         "payment_terms_aDYjcr": {
           "type": "payment_terms",
           "settings": {}
@@ -245,6 +252,7 @@
         },
         "variant_picker_fimiB3": {
           "type": "variant_picker",
+          "disabled": true,
           "settings": {
             "hide_sold_out_variants": false,
             "selector_style": "block",
@@ -255,10 +263,12 @@
         },
         "quantity_selector_EE69U6": {
           "type": "quantity_selector",
+          "disabled": true,
           "settings": {}
         },
         "buy_buttons_n87hPQ": {
           "type": "buy_buttons",
+          "disabled": true,
           "settings": {
             "show_payment_button": true,
             "show_gift_card_recipient": true,
@@ -279,6 +289,7 @@
         "badges_D7Kejj",
         "price_3JDqag",
         "rating_tCMe9T",
+        "skio_THMb3j",
         "payment_terms_aDYjcr",
         "separator_Fy6F8i",
         "description_cyFJkr",
@@ -290,7 +301,12 @@
       "name": "t:sections.featured_product.presets.featured_product.name",
       "settings": {
         "color_scheme": "scheme-4",
-        "product": "proten-blue-raspberry-28-count",
+        "product_flavors": [
+          "proten-blue-raspberry-28-count",
+          "proten-strawberries-n-cream-28-count-copy"
+        ],
+        "product_flavors_title": "CHOOSE YOUR FLAVOR",
+        "product_selected": "proten-blue-raspberry-28-count",
         "separate_section_with_border": true,
         "container_size": "lg",
         "product_info_size": 45,
