@@ -138,6 +138,7 @@ document.addEventListener("alpine:init", () => {
       this.selectedVariant = variant;
       this.selectedSellingPlanId = this.selectedVariant.selling_plan_id;
       this.selectedSellingPlan = this.skioDataObj.selling_plans.find(p => p.id === this.selectedSellingPlanId) || {};
+      console.log('Selected variant:', this.selectedVariant);
     },
 
     /**

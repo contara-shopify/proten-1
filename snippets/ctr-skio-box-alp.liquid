@@ -54,8 +54,16 @@
                             <option :value="plan.id" x-text="plan.name"></option>
                         </template>
                     </select> {% endcomment %}
-                    <button class="b-skio__box--btn" type="submit">
-                        Start now
+                    <button 
+                        class="b-skio__box--btn" 
+                        type="submit"
+                            :disabled="!selectedVariant?.available"
+                            :class="{
+                                'm-disabled': !selectedVariant?.available
+                              }"
+                        >
+                            <span x-show="selectedVariant?.available">Start now</span>
+                            <span x-show="!selectedVariant?.available">Out of stock</span>
                     </button>
                 </div>
                 <div 
@@ -88,8 +96,14 @@
                     <button 
                         class="b-skio__box--btn" 
                         type="submit" 
-                        :class="typePurchase === 'one-time' ? 'm-showed ' : ''">
-                        Try now
+                        :disabled="!selectedVariant?.available"
+                        :class="{
+                            'm-showed': typePurchase === 'one-time',
+                            'm-disabled': !selectedVariant?.available
+                          }"
+                    >
+                        <span x-show="selectedVariant?.available">Start now</span>
+                            <span x-show="!selectedVariant?.available">Out of stock</span>
                     </button>
                 </div>
             </div> 
