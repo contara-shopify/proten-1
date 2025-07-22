@@ -1,10 +1,5 @@
 {%- liquid
   assign has_content_below_gallery = false
-  assign product = section.settings.product_selected | default: product
-  if section.settings.product_selected
-    assign product = all_products[section.settings.product_selected]
-  endif
-
 
   for block in section.blocks
     if block.type == 'complementary_products'
@@ -223,11 +218,6 @@ quick buy information in a template, that will be extracted in JS, which ensures
       "type": "product_list",
       "id": "product_flavors",
       "label": "Select flavors products", 
-    },
-    {
-      "type": "product",
-      "id": "product_selected",
-      "label": "Select Product", 
     },
     {
       "type": "text",
@@ -656,7 +646,19 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "type": "richtext",
           "id": "skio_info_try_once",
           "label": "Your Skio Description for One Time Purchase block",
-        }
+        },
+        {
+          "type": "text",
+          "id": "skio_title_1",
+          "label": "Skio Title First",
+          "default": "One Person"
+        },
+        {
+          "type": "text",
+          "id": "skio_title_2",
+          "label": "Skio Title Second",
+          "default": "Two People"
+        },
       ]
     },
     {

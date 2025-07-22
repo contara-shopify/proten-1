@@ -268,11 +268,15 @@ Supported variables
               </ul>
               {% assign skio = block.settings.skio_info %}
               {% assign skio_try_once = block.settings.skio_info_try_once %}
+              {%- assign skio_titles_string = block.settings.skio_title_1 | append: ',' | append: block.settings.skio_title_2 | append: ',' | append: block.settings.skio_title_3 -%}
+              {%- assign skio_titles_array = skio_titles_string | split: ',' -%}
               <div> 
                 {% render 'ctr-skio-box-alp', 
                   product: product,
                   skio_data: skio, 
-                  skio_try_once: skio_try_once 
+                  skio_try_once: skio_try_once,
+                  skio_titles: skio_titles_array,
+                  product_form_id: product_form_id,
                 %}
               </div>
             </article>

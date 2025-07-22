@@ -1,8 +1,9 @@
 document.addEventListener("alpine:init", () => {
   Alpine.data("productCard", (sectionId) => ({
     sectionId,
-    // id,
+    // id, 
     mainProduct: {},              // { id, title, options, variants }
+    customTitles: [],             // Custom titles for variants
     variants: [],                 // [{ id, title, options: { Color: 'Red', Size: 'M' }, ... }]
     variantOncePurchase: {},                 
     selectedVariant: null,        // Selected Variant
@@ -17,6 +18,13 @@ document.addEventListener("alpine:init", () => {
      * Initialize the product card component
      */
     init() {
+      try {
+        const json = this.$refs.skioTitlesJson?.textContent;
+        this.customTitles = json ? JSON.parse(json) : [];
+        console.log('Parsed skio_titles JSON:', this.customTitles);
+      } catch (e) {
+        console.warn("Invalid skio_titles JSON");
+      }
       this.parseProductJson();      // Parse the product JSON from the DOM
       this.getSkioData();           // Get SKIO data
       this.mapVariants();           // Map all variants with named option objects

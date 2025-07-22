@@ -1,4 +1,7 @@
 <div class="b-skio">
+        <script type="application/json" x-ref="skioTitlesJson">
+            {{ skio_titles | json }}
+        </script>
     <product-form>
         {%- form 'product', product, id: form_id -%}
             <div class="b-skio__wrapper">
@@ -12,7 +15,7 @@
                             Monthly Offerings
                         </div>
                         <div class="b-skio__variant-items">
-                            <template x-for="variant in variants" :key="variant.id">
+                            <template x-for="(variant, index) in variants" :key="variant.id">
                                 <div 
                                     class="b-skio__variant-item"
                                     :class="{ 'm-selected': selectedVariant.id === variant.id }"
@@ -20,7 +23,7 @@
                                     @click="selectVariant(variant)"
                                 >
                                     <span class="b-skio__box--radiobtn"></span>
-                                    <h4 x-text="variant.parsedTitle.label" class="b-skio__box--title"></h4>
+                                    <h4 x-text="customTitles[index] || variant.parsedTitle.label" class="b-skio__box--title"></h4>
                                     {% comment %} <h4 x-text="variant.id"></h4> {% endcomment %}
                                     <div class="b-skio__variant-prices">
                                         <span 
