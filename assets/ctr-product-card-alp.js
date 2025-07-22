@@ -4,8 +4,9 @@ document.addEventListener("alpine:init", () => {
     // id,
     mainProduct: {},              // { id, title, options, variants }
     variants: [],                 // [{ id, title, options: { Color: 'Red', Size: 'M' }, ... }]
+    variantOncePurchase: {},                 
     selectedVariant: null,        // Selected Variant
-    skioDataObj: {},              // { id, metadata }
+    skioDataObj: {},              // { id, metadata } 
     typePurchase: 'subscribe',    // Default purchase type
     selectedSellingPlan: {},      // Selected selling plan object { }
     selectedSellingPlanId: null,  // Selected selling plan
@@ -66,6 +67,8 @@ document.addEventListener("alpine:init", () => {
     parseProductJson() {
       const productData = JSON.parse(this.$refs.productDataJson.textContent);
       this.mainProduct = productData;
+
+      console.log('Parsed product data:', this.mainProduct);
     },
 
     /**
@@ -177,7 +180,7 @@ document.addEventListener("alpine:init", () => {
     
       const countWords = {
         1: 'One Person',
-        2: 'Two Persons',
+        2: 'Two People',
         3: 'Three Persons',
       };
     
@@ -236,6 +239,8 @@ document.addEventListener("alpine:init", () => {
           parsedTitle,
         };
       });
+      this.variantOncePurchase = this.variants.find(v => v.title.includes('1')) || this.variants[0];
+      console.log('this.variantOncePurchase', this.variantOncePurchase); 
       console.log('this.variants.SKIO', this.variants); 
     },
 
@@ -317,16 +322,22 @@ document.addEventListener("alpine:init", () => {
      * @param {string} preselectedVariantId - The preselected variant ID
      */
     loadProduct(productHandle, preselectedVariantId = "") {
+      const isProductPage = window.location.pathname.startsWith('/products/');
+      // this.sectionId = 'template--25355607015792__main';
+      // this.sectionId = 'featured-product';
+      console.log("this.sectionId:", this.sectionId);
       const url = `/products/${productHandle}?${
         preselectedVariantId ? `variant=${preselectedVariantId}` : ""
       }&sections=${this.sectionId}`;
       const productUrl = `/products/${productHandle}.js`;
       let productDetails = null;
+      console.log("Loading product:", productHandle, "with section ID:", this.sectionId);
       fetch(url)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
+
           return response.json();
         })
         .then((product) => {
@@ -334,13 +345,16 @@ document.addEventListener("alpine:init", () => {
             console.error("Product section not found");
             return;
           }
-         
+          console.log("Loadeded product:", product);
           const container = document.createElement("div");
           container.innerHTML = product[this.sectionId];
           const productDetails = container.querySelector(
             "#MainProduct-" + this.sectionId
           );
+
+
           if (this.$refs.productCardRef) {
+            console.log("Replacing product card with new content", productDetails);
             this.$refs.productCardRef.replaceWith(productDetails);
             // this.reExecuteScript();
           } else {
@@ -355,16 +369,24 @@ document.addEventListener("alpine:init", () => {
           return response.json();
         })
         .then((productData) => {
+          console.log("Product data loaded:", productData);
           this.$nextTick(() => {
             this.initNewProduct(productData);
             // Alpine.initTree(productDetails); 
           });
 
-          window.history.pushState(
-            { urlPath: productHandle },
-            "", 
-            productHandle
-          );
+          if (isProductPage) {
+            window.history.pushState(
+              { urlPath: productHandle },
+              "",
+              `/products/${productHandle}`
+            );
+          }
+          // window.history.pushState(
+          //   { urlPath: productHandle },
+          //   "", 
+          //   productHandle
+          // );
         })
         .catch((error) => {
           console.error("Error loading product:", error);

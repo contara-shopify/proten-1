@@ -9,40 +9,87 @@
     }
   }
 </style>
+{%- liquid
+  assign product = section.settings.product_selected | default: product
+  if section.settings.product_selected
+    assign product = all_products[section.settings.product_selected]
+  endif
+-%}
+
+    <!-- Alpine Core -->
+      <script  src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+      <style> 
+        [x-cloak] { display: none !important; }
+      </style> 
+    <!-- Alpine Custom Skio Scripts -->
+    {{ 'ctr-product-card-alp.js' | asset_url | script_tag }}
+    {% comment %} {{ 'ctr-product-skio.js' | asset_url | script_tag }} {% endcomment %}
+    {{ 'ctr-product-skio.css' | asset_url | stylesheet_tag }}
+  
 
 {%- assign color_scheme_hash = section.settings.color_scheme.settings.background_gradient | default: section.settings.color_scheme.settings.background | md5 -%}
-{%- capture product_form_id -%}product-form-featured-product-{{ section.settings.product.id }}-{{ section.id }}{%- endcapture -%}
+{%- capture product_form_id -%}product-form-featured-product-{{ product.id }}-{{ section.id }}{%- endcapture -%}
 
-<div class="section-spacing color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg-{{ color_scheme_hash }} {% if section.settings.separate_section_with_border %}bordered-section{% endif %}">
-  <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
-    <div class="section-stack">
-      {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content, text_alignment: 'center' -%}
+<section 
+  class="section-spacing color-scheme color-scheme--{{ section.settings.color_scheme.id }} color-scheme--bg-{{ color_scheme_hash }} {% if section.settings.separate_section_with_border %}bordered-section{% endif %}"
+  x-data="productCard('{{ section.id }}')" 
+  x-ref='productCardElement'
+>
+  <h1>{{ product.id }}</h1>
+  <h1>{{ product_form_id }}</h1>
+  {% for flavor in section.settings.product_flavors %}
+    {% comment %} {% assign preselected_variant_id = flavor.selected_or_first_available_variant.id %}
+    {% assign flavor_name = flavor.metafields.custom.title_for_skio.value %} {% endcomment %}
+     {% assign product_flavor = all_products[flavor.handle] %}
+     <h2>{{ flavor.handle }}</h2>
+  {% endfor %} 
+  {% assign first_render_product = section.settings.product_flavors | first %}
+  <h2>{{ first_render_product.handle }}</h2>
+  {% assign productCurrent = all_products[first_render_product.handle] %}
+  {% comment %} {% assign productCurrent = all_products[section.settings.product] %} {% endcomment %}
+  <script x-ref="productDataJson" type="application/json">
+    {{ product | json }}
+  </script>
+  <div 
+    x-ref='productCardRef' 
+    id="MainProduct-{{ section.id }}"
+  >
+    <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
+      <div class="section-stack">
+        {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content, text_alignment: 'center' -%}
 
-      <product-rerender id="featured-product-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
-        <div class="product">
-          {%- if product.media.size > 0 or product == blank -%}
-            {%- render 'product-gallery',
-                product: section.settings.product,
-                product_form_id: product_form_id,
-                desktop_layout: section.settings.desktop_media_layout,
-                mobile_controls: section.settings.mobile_controls,
-                enable_media_autoplay: section.settings.enable_media_autoplay,
-                enable_video_looping: section.settings.enable_video_looping,
-                enable_image_zoom: section.settings.enable_image_zoom,
-                max_image_zoom_level: section.settings.max_image_zoom_level -%}
-          {%- endif -%}
+        <product-rerender id="featured-product-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
+          <div class="product">
+            {%- if product.media.size > 0 or product == blank -%}
+              {%- render 'product-gallery',
+                  product: product,
+                  product_form_id: product_form_id,
+                  desktop_layout: section.settings.desktop_media_layout,
+                  mobile_controls: section.settings.mobile_controls,
+                  enable_media_autoplay: section.settings.enable_media_autoplay,
+                  enable_video_looping: section.settings.enable_video_looping,
+                  enable_image_zoom: section.settings.enable_image_zoom,
+                  max_image_zoom_level: section.settings.max_image_zoom_level -%}
+            {%- endif -%}
+<div>
+  {{ product | json }}
+            {%- render 'product-info', 
+              product: product, 
+              product_form_id: product_form_id,
+              center_basic_info: section.settings.center_basic_info, 
+              product_flavors: section.settings.product_flavors, 
+              product_flavors_title: section.settings.product_flavors_title,
+              context: 'main_product' 
+            -%}
+          </div>
 
-          {%- render 'product-info', 
-            product: section.settings.product, 
-            product_form_id: product_form_id,
-            center_basic_info: section.settings.center_basic_info, 
-            context: 'featured_product' 
-          -%}
-        </div>
-      </product-rerender>
+
+          </div>
+        </product-rerender>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
 {% schema %}
 {
@@ -61,8 +108,19 @@
       "default": "scheme-1"
     },
     {
+      "type": "product_list",
+      "id": "product_flavors",
+      "label": "Select flavors products", 
+    },
+    {
+      "type": "text",
+      "id": "product_flavors_title",
+      "label": "Select flavors title",
+      "default": "CHOOSE YOUR FLAVOR",
+    },
+    {
       "type": "product",
-      "id": "product",
+      "id": "product_selected",
       "label": "t:sections.featured_product.product"
     },
     {
@@ -237,6 +295,22 @@
       "type": "vendor",
       "name": "t:sections.main_product.blocks.vendor.name",
       "limit": 1
+    },
+    {
+      "type": "skio",
+      "name": "Skio Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "skio_info",
+          "label": "Your Skio Description for Subscribe block",
+        },
+        {
+          "type": "richtext",
+          "id": "skio_info_try_once",
+          "label": "Your Skio Description for One Time Purchase block",
+        }
+      ]
     },
     {
       "type": "title",

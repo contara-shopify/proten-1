@@ -1,5 +1,10 @@
 {%- liquid
   assign has_content_below_gallery = false
+  assign product = section.settings.product_selected | default: product
+  if section.settings.product_selected
+    assign product = all_products[section.settings.product_selected]
+  endif
+
 
   for block in section.blocks
     if block.type == 'complementary_products'
@@ -20,6 +25,8 @@
     endif
   endfor
 -%}
+
+
 
 <style>
   #shopify-section-{{ section.id }} {
@@ -216,6 +223,11 @@ quick buy information in a template, that will be extracted in JS, which ensures
       "type": "product_list",
       "id": "product_flavors",
       "label": "Select flavors products", 
+    },
+    {
+      "type": "product",
+      "id": "product_selected",
+      "label": "Select Product", 
     },
     {
       "type": "text",
@@ -1859,6 +1871,7 @@ quick buy information in a template, that will be extracted in JS, which ensures
         }
       ]
     }
-  ]
+  ],
+
 }
 {% endschema %}

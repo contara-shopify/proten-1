@@ -158,6 +158,7 @@
   border-radius: 38px;
   min-width: 160px;
   text-align: center;
+  word-spacing: 3px;
 }
 @media (max-width: 768px) {
   .b-skio__variant-tag {

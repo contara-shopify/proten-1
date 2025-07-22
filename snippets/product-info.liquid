@@ -256,7 +256,9 @@ Supported variables
                   <li class="ctr-product-option__item m-badge" style="position: relative; overflow: visible;">
                     <button 
                       type="button"
-                      class="ctr-product-option__button {% if flavor.selected_or_first_available_variant.id == product.selected_or_first_available_variant.id %} m-active{% endif %}"
+                      class="
+                      ctr-product-option__button 
+                      {% if flavor.selected_or_first_available_variant.id == product.selected_or_first_available_variant.id %} m-active{% endif %}"
                       @click.prevent="loadProduct('{{ flavor.handle }}', '{{preselected_variant_id}}')"
                     >
                       {{ flavor_name }}
@@ -267,7 +269,11 @@ Supported variables
               {% assign skio = block.settings.skio_info %}
               {% assign skio_try_once = block.settings.skio_info_try_once %}
               <div> 
-                {% render 'ctr-skio-box-alp', skio_data: skio, skio_try_once: skio_try_once %}
+                {% render 'ctr-skio-box-alp', 
+                  product: product,
+                  skio_data: skio, 
+                  skio_try_once: skio_try_once 
+                %}
               </div>
             </article>
             {%- if contains_product -%}
