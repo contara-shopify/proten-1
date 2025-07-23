@@ -1,7 +1,7 @@
 document.addEventListener("alpine:init", () => {
-  Alpine.data("productCard", (sectionId) => ({
-    sectionId,
+  Alpine.data("productFeaturedCards", () => ({
     // id, 
+    allProductsObject: null,          // Active product object
     mainProduct: {},              // { id, title, options, variants }
     customTitles: [],             // Custom titles for variants
     variants: [],                 // [{ id, title, options: { Color: 'Red', Size: 'M' }, ... }]
@@ -49,7 +49,7 @@ document.addEventListener("alpine:init", () => {
       this.selectedSellingPlan = {};
       this.selectedSellingPlanId = null;
     
-      this.$refs.productDataJson.textContent = JSON.stringify(product);
+      // this.$refs.productDataJson.textContent = JSON.stringify(product);
     
       this.getSkioData();
       this.mapVariants();
@@ -73,10 +73,21 @@ document.addEventListener("alpine:init", () => {
        * Parse the product JSON from a DOM reference
        */
     parseProductJson() {
-      const productData = JSON.parse(this.$refs.productDataJson.textContent);
-      this.mainProduct = productData;
+      const productData_1 = JSON.parse(this.$refs.productDataJson1.textContent);
+      const productData_2 = JSON.parse(this.$refs.productDataJson2.textContent);
+      this.allProductsObject = [productData_1, productData_2 ];
+      this.mainProduct = this.allProductsObject[0];
 
       console.log('Parsed product data:', this.mainProduct);
+    },
+
+    setActiveProduct(productID) {
+      console.log('Setting active product with ID:', productID);
+      console.log('Setting active product with ID:', this.mainProduct);
+      
+      const product =  this.allProductsObject.find(p => p.id == productID) || this.allProductsObject[0];
+      this.initNewProduct(product);
+      console.log('Setting active product with ID:', this.mainProduct);
     },
 
     /**
@@ -323,84 +334,6 @@ document.addEventListener("alpine:init", () => {
       const diff = (variant.price * discount) / 100;
 
       return `$${(diff / 100).toFixed(2)}`;
-    },
-
-    /**
-     * Load the product
-     * @param {string} productHandle - The product handle
-     * @param {string} preselectedVariantId - The preselected variant ID
-     */
-    loadProduct(productHandle, preselectedVariantId = "") {
-      const isProductPage = window.location.pathname.startsWith('/products/');
-      if (!isProductPage) {
-        window.location.href = `/products/${productHandle}?variant=${preselectedVariantId}`;
-      }
-
-      const url = `/products/${productHandle}?${
-        preselectedVariantId ? `variant=${preselectedVariantId}` : ""
-      }&sections=${this.sectionId}`;
-      const productUrl = `/products/${productHandle}.js`;
-      let productDetails = null;
-      console.log("Loading product:", productHandle, "with section ID:", this.sectionId);
-      fetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-
-          return response.json();
-        })
-        .then((product) => {
-          if (!product[this.sectionId]) {
-            console.error("Product section not found");
-            return;
-          }
-          console.log("Loadeded product:", product);
-          const container = document.createElement("div");
-          container.innerHTML = product[this.sectionId];
-          const productDetails = container.querySelector(
-            "#MainProduct-" + this.sectionId
-          );
-
-
-          if (this.$refs.productCardRef) {
-            console.log("Replacing product card with new content", productDetails);
-            this.$refs.productCardRef.replaceWith(productDetails);
-            // this.reExecuteScript();
-          } else {
-            console.error("Reference to productCardRef not found");
-          }
-          return fetch(productUrl);
-        })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to fetch product data");
-          }
-          return response.json();
-        })
-        .then((productData) => {
-          console.log("Product data loaded:", productData);
-          this.$nextTick(() => {
-            this.initNewProduct(productData);
-            // Alpine.initTree(productDetails); 
-          });
-
-          if (isProductPage) {
-            window.history.pushState(
-              { urlPath: productHandle },
-              "",
-              `/products/${productHandle}`
-            );
-          }
-          // window.history.pushState(
-          //   { urlPath: productHandle },
-          //   "", 
-          //   productHandle
-          // );
-        })
-        .catch((error) => {
-          console.error("Error loading product:", error);
-        });
-      },
+    }
   }));
 });

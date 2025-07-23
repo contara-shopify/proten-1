@@ -255,11 +255,11 @@ Supported variables
                   {% assign flavor_name = flavor.metafields.custom.title_for_skio.value %}
                   <li class="ctr-product-option__item m-badge" style="position: relative; overflow: visible;">
                     <button 
-                      type="button"
+                      type="button" 
                       class="
                       ctr-product-option__button 
                       {% if flavor.selected_or_first_available_variant.id == product.selected_or_first_available_variant.id %} m-active{% endif %}"
-                      @click.prevent="loadProduct('{{ flavor.handle }}', '{{preselected_variant_id}}')"
+                      @click.prevent="setActiveProduct('{{ flavor.id }}')"
                     >
                       {{ flavor_name }}
                     </button>

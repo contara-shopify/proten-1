@@ -199,6 +199,132 @@
         "remove_vertical_spacing": true
       }
     },
+    "featured_products_tabs_rbR8yc": {
+      "type": "featured-products-tabs",
+      "blocks": {
+        "vendor_XzDU9r": {
+          "type": "vendor",
+          "settings": {}
+        },
+        "title_ipLd7N": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "badges_XRUheC": {
+          "type": "badges",
+          "settings": {}
+        },
+        "price_rj3miR": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "rating_zEDGPw": {
+          "type": "rating",
+          "settings": {
+            "show_empty": true,
+            "rating_mode": "rating"
+          }
+        },
+        "payment_terms_eBPKfL": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator_638cmx": {
+          "type": "separator",
+          "settings": {}
+        },
+        "description_hcbF3Y": {
+          "type": "description",
+          "settings": {
+            "collapse_content": false
+          }
+        },
+        "skio_Xcr4an": {
+          "type": "skio",
+          "settings": {
+            "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info_1": "<ul><li>28 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info_try_once": "",
+            "skio_title_1": "One Person",
+            "skio_title_2": "Two People"
+          }
+        },
+        "variant_picker_XNjCAd": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector_T8Mpac": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons_kjiyjX": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_payment_button": true,
+            "show_gift_card_recipient": true,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "",
+            "payment_button_text_color": ""
+          }
+        },
+        "pickup_availability_dfKzx7": {
+          "type": "pickup_availability",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_XzDU9r",
+        "title_ipLd7N",
+        "badges_XRUheC",
+        "price_rj3miR",
+        "rating_zEDGPw",
+        "payment_terms_eBPKfL",
+        "separator_638cmx",
+        "description_hcbF3Y",
+        "skio_Xcr4an",
+        "variant_picker_XNjCAd",
+        "quantity_selector_T8Mpac",
+        "buy_buttons_kjiyjX",
+        "pickup_availability_dfKzx7"
+      ],
+      "name": "Featured Products Tabs",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "product_flavors": [
+          "proten-strawberries-n-cream-28-count-copy",
+          "proten-blue-raspberry-28-count"
+        ],
+        "product_flavors_title": "CHOOSE YOUR FLAVOR",
+        "separate_section_with_border": true,
+        "container_size": "lg",
+        "product_info_size": 45,
+        "center_basic_info": false,
+        "desktop_media_layout": "carousel_thumbnails_bottom",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": false,
+        "enable_video_looping": true,
+        "enable_image_zoom": false,
+        "max_image_zoom_level": 3,
+        "subheading": "",
+        "title": "Featured product",
+        "content": ""
+      }
+    },
     "featured_product_ErDi48": {
       "type": "featured-product",
       "blocks": {
@@ -232,8 +358,11 @@
         "skio_THMb3j": {
           "type": "skio",
           "settings": {
-            "skio_info": "",
-            "skio_info_try_once": ""
+            "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info_1": "",
+            "skio_info_try_once": "",
+            "skio_title_1": "One Person",
+            "skio_title_2": "Two People"
           }
         },
         "payment_terms_aDYjcr": {
@@ -298,6 +427,7 @@
         "buy_buttons_n87hPQ",
         "pickup_availability_gpj6CA"
       ],
+      "disabled": true,
       "name": "t:sections.featured_product.presets.featured_product.name",
       "settings": {
         "color_scheme": "scheme-4",
@@ -559,6 +689,7 @@
     "testimonials_pBA3ki",
     "image_with_text_J77MFr",
     "image_with_text_JEKqRd",
+    "featured_products_tabs_rbR8yc",
     "featured_product_ErDi48",
     "multi_column_YrAjfw",
     "image-with-text-scroll",

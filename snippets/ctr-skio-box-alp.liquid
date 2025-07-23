@@ -51,7 +51,18 @@
                             </template>
                         </div> 
                     </div>
-                    <div class="b-skio__box-description m-subscribe" x-data="{ skio_data: '{{ skio_data | escape }}' }" x-html="skio_data"></div>
+                    <div 
+                        x-show="selectedVariant.parsedTitle.count == 2"
+                        class="b-skio__box-description m-subscribe" 
+                        x-data="{ skio_data: '{{ skio_data | escape }}' }" 
+                        x-html="skio_data">
+                    </div>
+                    <div 
+                        x-show="selectedVariant.parsedTitle.count == 1"
+                        class="b-skio__box-description m-subscribe" 
+                        x-data="{ skio_data_1: '{{ skio_data_1 | escape }}' }" 
+                        x-html="skio_data_1">
+                    </div>
                     {% comment %} <select @change="onChangeSellingPlan">
                         <template x-for="plan in skioDataObj.selling_plans" :key="plan.id">
                             <option :value="plan.id" x-text="plan.name"></option>
