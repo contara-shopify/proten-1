@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "slideshow_jN3kF4": {
       "type": "slideshow",
@@ -15,12 +15,12 @@
         "image_NRjhkN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_18.png",
-            "mobile_image": "shopify://shop_images/Untitled_design_18.png",
-            "subheading": "GUMMIES THAT FIT YOUR GRIND - HIGH PROTEIN, LOW CALORIE - ULTRA CONVENIENT",
+            "image": "shopify://shop_images/web_v5_a8408f02-b9e0-4cfd-8c1b-55068da4eafa.jpg",
+            "mobile_image": "shopify://shop_images/Mobile_V4_d938a41f-542f-4340-8de3-26fe170611f0.jpg",
+            "subheading": "",
             "title": "",
             "mobile_text_position": "place-self-end-start text-start",
-            "desktop_text_position": "sm:place-self-center-start sm:text-start",
+            "desktop_text_position": "sm:place-self-end-center sm:text-center",
             "content_max_width": 780,
             "button_1_text": "",
             "button_1_link": "",
@@ -30,7 +30,7 @@
             "button_2_text": "Shop Now",
             "button_2_link": "shopify://products/proten-blue-raspberry-28-count",
             "button_2_style": "solid",
-            "button_2_background": "#454a76",
+            "button_2_background": "#ffcc4e",
             "button_2_text_color": "#ffffff",
             "background": "",
             "background_opacity": 11,
@@ -137,7 +137,7 @@
         "richtext_ygNzyG": {
           "type": "richtext",
           "settings": {
-            "content": "<p>We made protein simple: 20g per pack, under 5g of sugar, and no weird aftertaste. Just effective nutrition in a format you’ll actually use.</p>"
+            "content": "<p>We made protein simple: 20g per pack, 0g of sugar, and no weird aftertaste. Just effective nutrition in a format you’ll actually use.</p>"
           }
         }
       },
@@ -177,7 +177,7 @@
         "richtext_CeEHFn": {
           "type": "richtext",
           "settings": {
-            "content": "<p><br/>Each pouch is loaded with clean, functional ingredients - high-quality whey isolate, real flavor, and zero fillers.<br/><br/>→ 20g protein | &lt;5g sugar | 90 calories</p><p></p><p><a href=\"https://cdn.shopify.com/s/files/1/0894/6103/1280/files/Untitled_design_23.png?v=1748905847\" target=\"_blank\" title=\"https://cdn.shopify.com/s/files/1/0894/6103/1280/files/Untitled_design_23.png?v=1748905847\">See Label</a><br/></p>"
+            "content": "<p><br/>Each pouch is loaded with clean, functional ingredients - high-quality whey isolate, real flavor, and zero fillers.<br/><br/>→ 20g protein | 0g sugar | 90 calories</p><p></p><p><br/></p>"
           }
         }
       },
@@ -246,8 +246,8 @@
         "skio_Xcr4an": {
           "type": "skio",
           "settings": {
-            "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
-            "skio_info_1": "<ul><li>28 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 100 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 90 calories</li><li>Cancel anytime</li></ul>",
+            "skio_info_1": "<ul><li>28 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 90 calories</li><li>Cancel anytime</li></ul>",
             "skio_info_try_once": "",
             "skio_title_1": "One Person",
             "skio_title_2": "Two People"
