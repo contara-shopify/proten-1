@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "main-product",
@@ -65,7 +65,7 @@
           "settings": {
             "skio_info": "<ul><li>56 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 90 calories</li><li>Cancel anytime</li></ul>",
             "skio_info_1": "<ul><li>28 packs every 4 weeks</li><li>20 grams of protein per serving</li><li>Only 90 calories</li><li>Cancel anytime</li></ul>",
-            "skio_info_try_once": "",
+            "skio_info_try_once": "<ul><li>NO Free Shipping</li></ul>",
             "skio_title_1": "One Person",
             "skio_title_2": "Two People"
           }

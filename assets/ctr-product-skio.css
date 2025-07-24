@@ -196,8 +196,13 @@
   z-index: -1;
   transition: all 0.3s ease;
 }
+.b-skio__box.m-one-time:hover {
+  border-color: var(--product-scheme-border-color);
+  background-color: var(--product-scheme-bg-color);
+} 
 .b-skio__box.m-one-time.m-selected {
   border-color: var(--product-scheme-border-color);
+  background-color: var(--product-scheme-bg-color);
 }
 .b-skio__box.m-one-time.m-selected .b-skio__box--radiobtn::after {
   opacity: 1;
@@ -226,6 +231,7 @@
 }
 .b-skio__box.m-selected .b-skio__variant-item.m-selected {
   border-color: var(--product-scheme-border-color);
+  background-color: var(--product-scheme-bg-color);
 }
 .b-skio__box.m-selected .b-skio__variant-item.m-selected .b-skio__box--radiobtn::after {
   opacity: 1;
