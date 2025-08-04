@@ -50,6 +50,10 @@
     {{ 'ctr-product-card-alp.js' | asset_url | script_tag }}
     {% comment %} {{ 'ctr-product-skio.js' | asset_url | script_tag }} {% endcomment %}
     {{ 'ctr-product-skio.css' | asset_url | stylesheet_tag }}
+      {% if block.settings.add_sampler_product %}
+        {% assign product_sampler_handle = block.settings.add_sampler_product %}
+        {% assign product_sampler = all_products[product_sampler_handle] %}
+      {% endif %}
     {% break %}
   {% endif %}
 {% endfor %}
@@ -60,6 +64,11 @@
   <script x-ref="productDataJson" type="application/json">
     {{ product | json }}
   </script>
+  {% if product_sampler != blank %}
+    <script x-ref="productSamplerDataJson" type="application/json">
+      {{ product_sampler | json }}
+    </script>
+  {% endif %}
 <div 
   id="MainProduct-{{ section.id }}"
   x-ref='productCardRef'
@@ -73,16 +82,31 @@
   <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
     <product-rerender id="product-info-{{ product.id }}-{{ section.id }}" observe-form="{{ product_form_id }}" allow-partial-rerender>
       <div class="product">
+          <div class="contents" x-show="typePurchase === 'sample-product'">
+            {%- render 'product-gallery',
+                product: product_sampler,
+                product_form_id: product_form_id,
+                desktop_layout: section.settings.desktop_media_layout,
+                mobile_controls: section.settings.mobile_controls,
+                enable_media_autoplay: section.settings.enable_media_autoplay,
+                enable_video_looping: section.settings.enable_video_looping,
+                enable_image_zoom: section.settings.enable_image_zoom,
+                max_image_zoom_level: section.settings.max_image_zoom_level -%}
+              </div>
+
         {%- if product.media.size > 0 -%}
-          {%- render 'product-gallery',
-              product: product,
-              product_form_id: product_form_id,
-              desktop_layout: section.settings.desktop_media_layout,
-              mobile_controls: section.settings.mobile_controls,
-              enable_media_autoplay: section.settings.enable_media_autoplay,
-              enable_video_looping: section.settings.enable_video_looping,
-              enable_image_zoom: section.settings.enable_image_zoom,
-              max_image_zoom_level: section.settings.max_image_zoom_level -%}
+          <div class="contents" x-show="typePurchase !== 'sample-product'">
+            {%- render 'product-gallery',
+                product: product,
+                product_sample: product_sampler,
+                product_form_id: product_form_id,
+                desktop_layout: section.settings.desktop_media_layout,
+                mobile_controls: section.settings.mobile_controls,
+                enable_media_autoplay: section.settings.enable_media_autoplay,
+                enable_video_looping: section.settings.enable_video_looping,
+                enable_image_zoom: section.settings.enable_image_zoom,
+                max_image_zoom_level: section.settings.max_image_zoom_level -%}
+            </div>
         {%- endif -%}
 
         {%- render 'product-info', 
@@ -664,6 +688,16 @@ quick buy information in a template, that will be extracted in JS, which ensures
           "label": "Skio Title Second",
           "default": "Two People"
         },
+        { 
+          "type": "product",
+          "id": "add_sampler_product",
+          "label": "Add sampler product", 
+        },
+        {
+          "type": "richtext",
+          "id": "skio_try_sampler_text",
+          "label": "Skio Description for Sampler Product",
+        }
       ]
     },
     {

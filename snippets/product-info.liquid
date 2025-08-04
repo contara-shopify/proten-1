@@ -269,6 +269,8 @@ Supported variables
               {% assign skio = block.settings.skio_info %}
               {% assign skio_1 = block.settings.skio_info_1 %}
               {% assign skio_try_once = block.settings.skio_info_try_once %}
+              {% assign skio_try_sampler = block.settings.skio_try_sampler_text %}
+              {% assign skio_try_sampler_color = block.settings.sampler_product_primary_color %}
               {%- assign skio_titles_string = block.settings.skio_title_1 | append: ',' | append: block.settings.skio_title_2 | append: ',' | append: block.settings.skio_title_3 -%}
               {%- assign skio_titles_array = skio_titles_string | split: ',' -%}
               <div> 
@@ -277,6 +279,8 @@ Supported variables
                   skio_data: skio, 
                   skio_data_1: skio_1, 
                   skio_try_once: skio_try_once,
+                  skio_try_sampler: skio_try_sampler,
+                  skio_try_sampler_color: skio_try_sampler_color,
                   skio_titles: skio_titles_array,
                   product_form_id: product_form_id,
                 %}

@@ -52,13 +52,13 @@
                         </div> 
                     </div>
                     <div 
-                        x-show="selectedVariant.parsedTitle.count == 2"
+                        x-show="typePurchase === 'subscribe' && selectedVariant.parsedTitle.count == 2 "
                         class="b-skio__box-description m-subscribe" 
                         x-data="{ skio_data: '{{ skio_data | escape }}' }" 
                         x-html="skio_data">
                     </div>
                     <div 
-                        x-show="selectedVariant.parsedTitle.count == 1"
+                        x-show="typePurchase === 'subscribe' && selectedVariant.parsedTitle.count == 1"
                         class="b-skio__box-description m-subscribe" 
                         x-data="{ skio_data_1: '{{ skio_data_1 | escape }}' }" 
                         x-html="skio_data_1">
@@ -117,10 +117,53 @@
                           }"
                     >
                         <span x-show="selectedVariant?.available">Start now</span>
-                            <span x-show="!selectedVariant?.available">Out of stock</span>
+                        <span x-show="!selectedVariant?.available">Out of stock</span>
                     </button>
                 </div>
+                <template x-if="samplePackProduct">
+                    <div 
+                        style=" 
+                        --product-scheme-border-color: #FFCC4E;
+                        --product-scheme-bg-color: #FFF8E5;
+                        --product-scheme-main-color: #FFCC4E;        
+                        "
+
+                        class="b-skio__box m-sample-product"
+                        :class="typePurchase === 'sample-product' ? 'm-selected ' : ''"
+                        x-show="samplePackProduct"
+                        @click="typePurchase = 'sample-product', selectVariant(samplePackProduct.variants[0])" 
+                    >
+                        <div class="b-skio__box--inner"> 
+                            <span class="b-skio__box--radiobtn"></span>
+                            <h4 class="b-skio__box--title" x-text="samplePackProduct.title"></h4>
+                            <span class="b-skio__variant-price" x-text="getPriceCorrectFormat(samplePackProduct.variants[0])"></span>
+                            <span 
+                                class="b-skio__variant-description" 
+                                x-html="samplePackProduct.description"
+                            ></span>
+                        </div>
+                        <div 
+                            :class="typePurchase === 'sample-product' ? 'm-showed ' : ''"
+                            class="b-skio__box-description m-sample-product" 
+                            x-data="{ skio_try_sampler: '{{ skio_try_sampler | escape }}' }" 
+                            x-html="skio_try_sampler"
+                        ></div>
+                        <button 
+                            class="b-skio__box--btn" 
+                            type="submit" 
+                            :disabled="!selectedVariant?.available"
+                            :class="{
+                                'm-showed': typePurchase === 'sample-product',
+                                'm-disabled': !selectedVariant?.available
+                            }"
+                        >
+                            <span x-show="selectedVariant?.available">Try now</span>
+                            <span x-show="!selectedVariant?.available">Out of stock</span>
+                        </button>
+                    </div> 
+                </template>
             </div> 
+
             <input type="hidden" name="id" :value="selectedVariant.id">
             <input type="hidden" name="selling_plan" :value="typePurchase === 'subscribe' ? selectedSellingPlanId : ''">
         {%- endform -%}

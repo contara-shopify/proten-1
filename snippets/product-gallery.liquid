@@ -92,7 +92,12 @@ only way to do it on Shopify right now.
   endif
 %}
 
-<product-gallery class="product-gallery" form="{{ product_form_id }}" filtered-indexes="{{ filtered_indexes | json }}" {% if enable_media_autoplay %}autoplay-media{% endif %} {% if enable_image_zoom %}allow-zoom="{{ max_image_zoom_level }}"{% endif %}>
+
+<product-gallery 
+  class="product-gallery" 
+  form="{{ product_form_id }}" 
+  filtered-indexes="{{ filtered_indexes | json }}" 
+  {% if enable_media_autoplay %}autoplay-media{% endif %} {% if enable_image_zoom %}allow-zoom="{{ max_image_zoom_level }}"{% endif %}>
   {%- if enable_image_zoom -%}
     <open-lightbox-button class="contents">
       <button class="product-gallery__zoom-button circle-button circle-button--sm md:hidden">

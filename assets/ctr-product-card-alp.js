@@ -2,6 +2,7 @@ document.addEventListener("alpine:init", () => {
   Alpine.data("productCard", (sectionId) => ({
     sectionId,
     // id, 
+    samplePackProduct: false,            // Flag for sample pack product
     mainProduct: {},              // { id, title, options, variants }
     customTitles: [],             // Custom titles for variants
     variants: [],                 // [{ id, title, options: { Color: 'Red', Size: 'M' }, ... }]
@@ -70,12 +71,22 @@ document.addEventListener("alpine:init", () => {
     },
 
     /** 
-       * Parse the product JSON from a DOM reference
-       */
+     * Parse the product JSON from a DOM reference
+     */
     parseProductJson() {
       const productData = JSON.parse(this.$refs.productDataJson.textContent);
-      this.mainProduct = productData;
+      if (this.$refs.productSamplerDataJson) {
+        try {
+          productSampleData = JSON.parse(this.$refs.productSamplerDataJson.textContent);
+          this.samplePackProduct = productSampleData;
+        } catch (e) {
+          console.warn('[Skio] Failed to parse sampler product JSON:', e);
+        }
+      }
 
+      this.mainProduct = productData;
+       // Check if sample pack is enabled
+      console.log('this.samplePackProduct:', this.samplePackProduct);
       console.log('Parsed product data:', this.mainProduct);
     },
 

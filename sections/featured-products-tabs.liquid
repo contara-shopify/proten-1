@@ -23,6 +23,13 @@
   {{ 'ctr-product-card-alp-tabs.js' | asset_url | script_tag }}
   {% comment %} {{ 'ctr-product-skio.js' | asset_url | script_tag }} {% endcomment %}
   {{ 'ctr-product-skio.css' | asset_url | stylesheet_tag }}
+  {% for block in section.blocks %}
+    {% if block.type == 'skio' %}
+      {% assign product_sampler_handle = block.settings.add_sampler_product %}
+      {% assign product_sampler = all_products[product_sampler_handle] %}
+    {% endif %}
+  {% endfor %}
+  
   
 
 {%- assign color_scheme_hash = section.settings.color_scheme.settings.background_gradient | default: section.settings.color_scheme.settings.background | md5 -%}
@@ -40,6 +47,11 @@
   <script x-ref="productDataJson2" type="application/json">
     {{ product_2 | json }}
   </script>
+  {% if product_sampler != blank %}
+    <script x-ref="productSamplerDataJson" type="application/json">
+      {{ product_sampler | json }}
+    </script>
+  {% endif %}
 <div class="container">
   <div class="section-stack">
     {%- render 'section-header', subheading: section.settings.subheading, heading: section.settings.title, content: section.settings.content, text_alignment: 'center' -%}
@@ -57,16 +69,30 @@
 
         <product-rerender id="featured-product-{{ section.id }}" observe-form="{{ product_form_id_1 }}" allow-partial-rerender>
           <div class="product">
-            {%- if product.media.size > 0 or product == blank -%}
+            <div class="contents" x-show="typePurchase === 'sample-product'">
               {%- render 'product-gallery',
-                  product: product_1,
-                  product_form_id: product_form_id_1,
+                  product: product_sampler,
+                  product_form_id: product_form_id,
                   desktop_layout: section.settings.desktop_media_layout,
                   mobile_controls: section.settings.mobile_controls,
                   enable_media_autoplay: section.settings.enable_media_autoplay,
                   enable_video_looping: section.settings.enable_video_looping,
                   enable_image_zoom: section.settings.enable_image_zoom,
                   max_image_zoom_level: section.settings.max_image_zoom_level -%}
+                </div>
+            {%- if product.media.size > 0 or product == blank -%}
+              <div class="contents" x-show="typePurchase !== 'sample-product'">
+                {%- render 'product-gallery',
+                    product: product_1,
+                    product_sample: product_sampler,
+                    product_form_id: product_form_id_1,
+                    desktop_layout: section.settings.desktop_media_layout,
+                    mobile_controls: section.settings.mobile_controls,
+                    enable_media_autoplay: section.settings.enable_media_autoplay,
+                    enable_video_looping: section.settings.enable_video_looping,
+                    enable_image_zoom: section.settings.enable_image_zoom,
+                    max_image_zoom_level: section.settings.max_image_zoom_level -%}
+                </div>
             {%- endif -%}
 
             {%- render 'ctr-product-info',  
@@ -93,16 +119,31 @@
 
         <product-rerender id="featured-product-{{ section.id }}" observe-form="{{ product_form_id_2 }}" allow-partial-rerender>
           <div class="product">
-            {%- if product.media.size > 0 or product == blank -%}
+
+            <div class="contents" x-show="typePurchase === 'sample-product'">
               {%- render 'product-gallery',
-                  product: product_2,
-                  product_form_id: product_form_id_2,
+                  product: product_sampler,
+                  product_form_id: product_form_id,
                   desktop_layout: section.settings.desktop_media_layout,
                   mobile_controls: section.settings.mobile_controls,
                   enable_media_autoplay: section.settings.enable_media_autoplay,
                   enable_video_looping: section.settings.enable_video_looping,
                   enable_image_zoom: section.settings.enable_image_zoom,
                   max_image_zoom_level: section.settings.max_image_zoom_level -%}
+                </div>
+            {%- if product.media.size > 0 or product == blank -%}
+              <div class="contents" x-show="typePurchase !== 'sample-product'">
+                {%- render 'product-gallery',
+                    product: product_2,
+                    product_sample: product_sampler,
+                    product_form_id: product_form_id_2,
+                    desktop_layout: section.settings.desktop_media_layout,
+                    mobile_controls: section.settings.mobile_controls,
+                    enable_media_autoplay: section.settings.enable_media_autoplay,
+                    enable_video_looping: section.settings.enable_video_looping,
+                    enable_image_zoom: section.settings.enable_image_zoom,
+                    max_image_zoom_level: section.settings.max_image_zoom_level -%}
+                </div>
             {%- endif -%}
 
             {%- render 'ctr-product-info',  
@@ -337,7 +378,7 @@
           "label": "Skio Description for Second Variant",
         },
         {
-          "type": "richtext",
+          "type": "richtext", 
           "id": "skio_info_try_once",
           "label": "Your Skio Description for One Time Purchase block",
         },
@@ -353,6 +394,16 @@
           "label": "Skio Title Second",
           "default": "Two People"
         },
+        { 
+          "type": "product",
+          "id": "add_sampler_product",
+          "label": "Add sampler product", 
+        },
+        {
+          "type": "richtext",
+          "id": "skio_try_sampler_text",
+          "label": "Skio Description for Sampler Product",
+        }
       ]
     },
     {
